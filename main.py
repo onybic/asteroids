@@ -40,6 +40,10 @@ def main():
             if asteroid.collides_with(player):
                 print("Game over!")
                 sys.exit()
+            for shot in shots:
+                if shot.collides_with(asteroid):
+                    shot.kill()
+                    asteroid.split()
 
         screen.fill("black")
 
@@ -50,6 +54,7 @@ def main():
 
         # 60fps limit
         dt = clock.tick(60) / 1000
+
 
 
 if __name__ == "__main__":
